@@ -34,5 +34,6 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    client_marvel:
+    api_marvel:
         class: AppBundle\Service\ClientMarvel
+        arguments: ["@service_container"]

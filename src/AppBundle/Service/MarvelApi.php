@@ -3,20 +3,31 @@
 namespace AppBundle\Service;
 
 use GuzzleHttp\Client;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
-class ClientMarvel{
+class MarvelApi{
 
-    private $privateKey = 'd037ab9cd47bcd809f2fcfd847fd5aabc3431403';
-    private $publicKey = 'fa4ac958e92065cce575686b21c83361';
+    private $privateKey;
+    private $publicKey;
+    private $container;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 
 
     public function fetchAllCharacters(){
+
+        $this->privateKey = $this->container->getParameter('private_key');
+        $this->publicKey = $this->container->getParameter('public_key');
+
         $ts = time();
         $hash = md5($ts . $this->privateKey . $this->publicKey);
 
         $client = new Client();
-        $res = $client->request('GET', 'http://gateway.marvel.com/v1/public/characters?offset=99&ts='.$ts.'&apikey=fa4ac958e92065cce575686b21c83361&hash='.$hash);
+        $res = $client->request('GET', 'http://gateway.marvel.com/v1/public/characters?offset=99&ts='.$ts.'&apikey='.$this->publicKey.'&hash='.$hash);
 
         $response = json_decode($res->getBody(), true);
         $data = [];
@@ -29,11 +40,14 @@ class ClientMarvel{
     }
 
     public function fetchOneCharacter($name){
+        $this->privateKey = $this->container->getParameter('private_key');
+        $this->publicKey = $this->container->getParameter('public_key');
+
         $ts = time();
         $hash = md5($ts . $this->privateKey . $this->publicKey);
 
         $client = new Client();
-        $res = $client->request('GET', 'http://gateway.marvel.com/v1/public/characters?name='.$name.'&ts='.$ts.'&apikey=fa4ac958e92065cce575686b21c83361&hash='.$hash);
+        $res = $client->request('GET', 'http://gateway.marvel.com/v1/public/characters?name='.$name.'&ts='.$ts.'&apikey='.$this->publicKey.'&hash='.$hash);
 
         $response = json_decode($res->getBody(), true);
 

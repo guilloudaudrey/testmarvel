@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Service\ClientMarvel;
+use AppBundle\Service\MarvelApi;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,11 +10,11 @@ use GuzzleHttp\Client;
 
 class HeroesController extends Controller{
 
-    protected $clientMarvel;
+    protected $marvelApi;
 
-    public function __construct(ClientMarvel $clientMarvel)
+    public function __construct(MarvelApi $marvelApi)
     {
-        $this->clientMarvel = $clientMarvel;
+        $this->marvelApi = $marvelApi;
     }
 
     /**
@@ -23,7 +23,7 @@ class HeroesController extends Controller{
     public function indexAction(Request $request)
     {
 
-        $data = $this->clientMarvel->fetchAllCharacters();
+        $data = $this->marvelApi->fetchAllCharacters();
         return $this->render('heroes/index.html.twig', array(
             'data' => $data,
         ));
@@ -33,7 +33,7 @@ class HeroesController extends Controller{
      */
     public function showAction($name){
 
-        $data = $this->clientMarvel->fetchOneCharacter($name);
+        $data = $this->marvelApi->fetchOneCharacter($name);
         return $this->render('heroes/show.html.twig', array(
             'data' => $data
         ));
