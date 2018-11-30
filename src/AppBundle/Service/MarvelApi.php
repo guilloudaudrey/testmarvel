@@ -20,8 +20,9 @@ class MarvelApi{
 
     public function fetchAllCharacters(){
 
-        $this->privateKey = $this->container->getParameter('private_key');
-        $this->publicKey = $this->container->getParameter('public_key');
+        $this->privateKey = $this->container->getParameter('private.key');
+        $this->publicKey = $this->container->getParameter('public.key');
+
 
         $ts = time();
         $hash = md5($ts . $this->privateKey . $this->publicKey);
@@ -40,8 +41,8 @@ class MarvelApi{
     }
 
     public function fetchOneCharacter($name){
-        $this->privateKey = $this->container->getParameter('private_key');
-        $this->publicKey = $this->container->getParameter('public_key');
+        $this->privateKey = $this->container->getParameter('private.key');
+        $this->publicKey = $this->container->getParameter('public.key');
 
         $ts = time();
         $hash = md5($ts . $this->privateKey . $this->publicKey);

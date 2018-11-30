@@ -5,9 +5,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Dotenv\Dotenv;
 
 
-
-
-
 // If you don't want to setup permissions the proper way, just uncomment the following PHP line
 // read https://symfony.com/doc/current/setup.html#checking-symfony-application-configuration-and-setup
 // for more information
@@ -30,6 +27,11 @@ $kernel = new AppKernel('dev', true);
 if (PHP_VERSION_ID < 70000) {
     $kernel->loadClassCache();
 }
+
+
+$dotenv = new Dotenv();
+$dotenv->load(__DIR__.'/../app/config/.env');
+
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
