@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include 'menu.html.twig' %}
+    <div class="container">
+        <div class="row">
+    {% for d in data %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="{{ d['thumbnail'] }}" alt="Card image cap" style="height: 200px">
+                    <a href="{{ path('show', { 'name': d.name }) }}" class="card-title">{{ d['name'] }}</a>
+
+                </div>
+            </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

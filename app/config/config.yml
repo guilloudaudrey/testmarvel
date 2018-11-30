@@ -7,6 +7,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    private_key: 'd037ab9cd47bcd809f2fcfd847fd5aabc3431403'
+    public_key: 'fa4ac958e92065cce575686b21c83361'
 
 framework:
     #esi: ~
