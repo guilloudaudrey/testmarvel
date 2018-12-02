@@ -22,7 +22,7 @@ composer install
 ```
 3. Run server and go to http://localhost:8000/ 
 ```
-bin/console server:start
+php bin/console server:start
 ```
 ## Setup Local Environment Variables
 
