@@ -1,26 +1,35 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block body %}
+{% block content %}
 
-    {% include 'menu.html.twig' %}
     <div class="container">
         <div class="row">
-        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-            <img style= "height: 200px" src="{{ data['thumbnail']['path']  }}.{{ data['thumbnail']['extension'] }}">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <img class="img_show" src="{{ data['thumbnail']['path']  }}.{{ data['thumbnail']['extension'] }}">
         </div>
-        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-            <p>Name : {{ data['name'] }}</p>
-            <p>Description : {{ data['description'] }} </p>
-            <p>Nombre de comics : {{ data['comics']['available'] }}</p>
-            <p>Trois premiers comics :
-            {% for comic in data['comics']['items'] |slice(0, 3) %}
-                <ul>
-                    <li>
-                        {{ comic['name'] }}
-                    </li>
-                </ul>
-            {% endfor %}
-            </p>
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header title_hero_show">
+                    {{ data['name'] }}
+                </div>
+                <div class="card-body">
+                    <p>Description : {{ data['description'] }} </p>
+                    <p>Nombre de comics : {{ data['comics']['available'] }}</p>
+                    <p>Trois premiers comics :
+                        {% for comic in data['comics']['items'] |slice(0, 3) %}
+                    <ul>
+                        <li>
+                            {{ comic['name'] }}
+                        </li>
+                    </ul>
+                    {% endfor %}
+                    </p>
+                </div>
+            </div>
+
+
+
+
         </div>
         </div>
     </div>

@@ -53,17 +53,19 @@ class MarvelApi{
         $this->privateKey = $this->container->getParameter('private.key');
         $this->publicKey = $this->container->getParameter('public.key');
         $cache = new FilesystemCache();
+        $reservedCharacters = ['(', ')'];
+        $nameCleaned = $key = str_replace($reservedCharacters, '', $name);
 
         $ts = time();
         $hash = md5($ts . $this->privateKey . $this->publicKey);
 
-        if (!$cache->has('hero'.$name)) {
+        if (!$cache->has('hero'.$nameCleaned)) {
             $client = new Client();
             $res = $client->request('GET', 'http://gateway.marvel.com/v1/public/characters?name=' . $name . '&ts=' . $ts . '&apikey=' . $this->publicKey . '&hash=' . $hash);
             $response = json_decode($res->getBody(), true);
-            $cache->set('hero' . $name, $response);
+            $cache->set('hero' . $nameCleaned, $response);
         }else{
-            $response = $cache->get('hero' . $name);
+            $response = $cache->get('hero' . $nameCleaned);
         }
 
         foreach ($response['data']['results'] as $hero){

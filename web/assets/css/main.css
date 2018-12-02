@@ -1,7 +1,9 @@
 
 
-.card{
-    margin: 5px;
+.card_hero{
+    margin: 10px;
+    background-color: #e01a1a !important;
+
 }
 
 .card-title{
@@ -13,10 +15,42 @@
     margin-bottom: 50px;
 }
 
+.navbar-brand{
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 2em !important;
+    font-weight: bold;
+}
+
 .img_container{
     width: 100%;
-    height: 200px;
-    background-size: coverdra;
+    height: 220px;
+    background-size: cover;
+
+}
+
+.hero_name{
+    margin-top: 10px;
+    font-family: 'Oswald', sans-serif;
+    color: white !important;
+
+}
+
+.hero_name:hover{
+    text-decoration: none;
+    color: darkred;
+}
+
+.img_show{
+    width: 100%;
+}
+
+.title_hero_show{
+    background-color: #e01a1a !important;
+    width: 100% !important;
+    font-family: 'Oswald', sans-serif;
+    color: white !important;
+    font-size: 1.5em !important;
 }
 
 

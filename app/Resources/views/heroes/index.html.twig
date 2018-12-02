@@ -1,15 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block body %}
+{% block content %}
 
-    {% include 'menu.html.twig' %}
     <div class="container">
         <div class="row">
             {% for d in data %}
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                    <div class="card">
+                    <div class="card card_hero">
                         <div class="img_container" style="background-image: url('{{ d['thumbnail'] }}')"></div>
-                        <a href="{{ path('show', { 'name': d.name }) }}" class="card-title">{{ d['name'] }}</a>
+                        <a href="{{ path('show', { 'name': d.name }) }}" class="card-title hero_name">{{ d['name'] }}</a>
 
                     </div>
                 </div>
