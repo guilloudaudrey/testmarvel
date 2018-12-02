@@ -1,7 +1,7 @@
 test Marvel
 ===========
 
-A Symfony project created on November 27, 2018, 2:58 pm.
+A Symfony 3.4 project created on November 27, 2018, 2:58 pm.
 
 
 ## Overview
@@ -17,13 +17,13 @@ Data for this app is from ```Marvel API```.
     https://github.com/guilloudaudrey/testmarvel.git
 
 2. Run composer
-
+```
 	composer install
-
+```
 3. Run server and go to http://localhost:8000/ 
-
+```
     bin/console server:start
-
+```
 ## Setup Local Environment Variables
 
 Create a developer account in the Marvel API web page, where you will get your '''PRIVATE_KEY''' and '''PUBLIC_KEY". Create a file with the name of '.env' in app/config. And list the following local environment variables:
