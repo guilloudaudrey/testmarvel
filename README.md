@@ -18,11 +18,11 @@ Data for this app is from ```Marvel API```.
 
 2. Run composer
 ```
-	composer install
+composer install
 ```
 3. Run server and go to http://localhost:8000/ 
 ```
-    bin/console server:start
+bin/console server:start
 ```
 ## Setup Local Environment Variables
 
@@ -37,6 +37,5 @@ PUBLIC_KEY=YOUR PUBLIC KEY
 Execute this command to run tests:
 
 ```bash
-$ cd symfony-demo/
-$ ./bin/phpunit
+./vendor/bin/simple-phpunit 
 ```
