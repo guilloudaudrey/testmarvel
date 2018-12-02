@@ -12,3 +12,12 @@
 .navbar{
     margin-bottom: 50px;
 }
+
+.img_container{
+    width: 100%;
+    height: 200px;
+    background-size: coverdra;
+}
+
+
+
