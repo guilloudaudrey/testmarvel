@@ -24,6 +24,7 @@ class HeroesController extends Controller{
     {
 
         $data = $this->marvelApi->fetchAllCharacters();
+//        fjerifjirjfoerj
         return $this->render('heroes/index.html.twig', array(
             'data' => $data,
         ));
